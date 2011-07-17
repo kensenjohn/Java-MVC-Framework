@@ -1,0 +1,29 @@
+This is a simple MVC framework which can be used to build web application in a quick manner.
+This has been tested with tomcat 5.5 and tomcat 6 only. 
+
+
+Changes to web.xml (placed in WEB-INF)
+1) Add the StartupServlet.java as servlet.
+2) Add a Filter which will only intercepts form requests with the actions which ends with ".go"
+     Make change in web.xml to allow or add other extensions.
+
+
+control.xml
+This xml holds information for every action. It will specify every InitProcessor, Service, Dispatcher.
+Based on the result status, it will also provide information to the jsps where the response to be redirected to.
+
+StartupServlet.java
+This is loaded on startup. It converts all nodes in control.xml into a hashmap and stores it as a hashmap in the ServletContext for quick access.
+
+If a request to a jsp is made, the Filter will not intercept it.
+If the action is changed to ".go" the Filter will redirect it to the ControlServlet.
+
+ControlServlet.java
+This will use the action name in the request to identify a node in the control.xml from the SErvletContext.
+It uses this information to invoke the init processor, service, and dispatcher.
+
+See comments in the java files to understand the functioning better.
+
+Call to jsps direclty are not processed by the Controller.
+
+
