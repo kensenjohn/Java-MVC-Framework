@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Place this within the WEB-INF so that it cannot be accessed directly from the browser using the URL
+-->
+<CONTROL>
+	<ACTION  TYPE="FORM" ID="START_EVENT_DATE" INIT_PROC="com.gs.init.InitEventStart.initBegin" SERVICE_PROC="com.gs.service.ServiceEventStart.servBegin" DISPATCHER="com.gs.dispatch.DispatchEventStart.dispBegin" >
+		<RESULT STATUS="ERROR" DESTINATION="/web/com/gs/host_landing.jsp"/>
+		<RESULT STATUS="SUCCESS" DESTINATION="/web/com/gs/event/event_setup.jsp"/>
+	</ACTION>
+</CONTROL>
